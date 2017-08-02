@@ -18,6 +18,7 @@ import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.preference.PreferenceManager;
+import android.support.v4.content.ContextCompat;
 
 import com.cyanogenmod.eleven.R;
 import com.cyanogenmod.eleven.ui.fragments.AlbumFragment;
@@ -170,7 +171,7 @@ public final class PreferenceUtils {
      */
     public final int getDefaultThemeColor(final Context context) {
         return mPreferences.getInt(DEFAULT_THEME_COLOR,
-                context.getResources().getColor(R.color.blue));
+        		ContextCompat.getColor(context, R.color.blue));
     }
 
     /**
