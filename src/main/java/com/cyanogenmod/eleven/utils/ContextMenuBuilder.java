@@ -16,8 +16,6 @@ package com.cyanogenmod.eleven.utils;
  * limitations under the License.
  */
 
-import java.lang.reflect.Constructor;
-import java.lang.reflect.Method;
 import java.util.ArrayList;
 import android.content.ComponentName;
 import android.content.Context;
@@ -62,23 +60,28 @@ public class ContextMenuBuilder implements ContextMenu {
     }
     
     public ContextMenu setHeaderIcon(Drawable icon) {
-        return (ContextMenu) MenuBuilderHelper.setHeaderIconInt(menuBuilder, icon);
+    	MenuBuilderHelper.setHeaderIconInt(menuBuilder, icon);
+        return (ContextMenu) this;
     }
 
     public ContextMenu setHeaderIcon(int iconRes) {
-        return (ContextMenu) MenuBuilderHelper.setHeaderIconInt(menuBuilder, iconRes);
+    	MenuBuilderHelper.setHeaderIconInt(menuBuilder, iconRes);
+        return (ContextMenu) this;
     }
 
     public ContextMenu setHeaderTitle(CharSequence title) {
-        return (ContextMenu) MenuBuilderHelper.setHeaderTitleInt(menuBuilder, title);
+    	MenuBuilderHelper.setHeaderTitleInt(menuBuilder, title);
+        return (ContextMenu) this;
     }
 
     public ContextMenu setHeaderTitle(int titleRes) {
-        return (ContextMenu) MenuBuilderHelper.setHeaderTitleInt(menuBuilder, titleRes);
+    	MenuBuilderHelper.setHeaderTitleInt(menuBuilder, titleRes);
+        return (ContextMenu) this;
     }
 
     public ContextMenu setHeaderView(View view) {
-        return (ContextMenu) MenuBuilderHelper.setHeaderViewInt(menuBuilder, view);
+    	MenuBuilderHelper.setHeaderViewInt(menuBuilder, view);
+        return (ContextMenu) this;
     }
    
     public ArrayList<MenuItemImpl> getVisibleItems() {

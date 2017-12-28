@@ -70,17 +70,21 @@ public class MenuBuilderHelper {
             mConstructor = cMenuBuilder.getConstructor(new Class[] {Context.class});
             mSetCallback = cMenuBuilder.getMethod("setCallback", new Class[] {MenuBuilder.Callback.class});
             mAddMenuPresenter = cMenuBuilder.getMethod("addMenuPresenter", new Class[] {MenuPresenter.class});
-            mSetHeaderIconIntDrawable = cMenuBuilder.getMethod("setHeaderIconInt", new Class[] {Drawable.class});
-            mSetHeaderIconIntInt = cMenuBuilder.getMethod("setHeaderIconInt", new Class[] {int.class});
-            mSetHeaderTitleIntCharSequence = cMenuBuilder.getMethod("setHeaderTitleInt", new Class[] {CharSequence.class});
-            mSetHeaderTitleIntInt = cMenuBuilder.getMethod("setHeaderTitleInt", new Class[] {int.class});
-            mSetHeaderViewInt = cMenuBuilder.getMethod("setHeaderViewInt", new Class[] {View.class});
+            mSetHeaderIconIntDrawable = cMenuBuilder.getDeclaredMethod("setHeaderIconInt", new Class[] {Drawable.class});
+            mSetHeaderIconIntDrawable.setAccessible(true);
+            mSetHeaderIconIntInt = cMenuBuilder.getDeclaredMethod("setHeaderIconInt", new Class[] {int.class});
+            mSetHeaderIconIntInt.setAccessible(true);
+            mSetHeaderTitleIntCharSequence = cMenuBuilder.getDeclaredMethod("setHeaderTitleInt", new Class[] {CharSequence.class});
+            mSetHeaderTitleIntCharSequence.setAccessible(true);
+            mSetHeaderTitleIntInt = cMenuBuilder.getDeclaredMethod("setHeaderTitleInt", new Class[] {int.class});
+            mSetHeaderTitleIntInt.setAccessible(true);
+            mSetHeaderViewInt = cMenuBuilder.getDeclaredMethod("setHeaderViewInt", new Class[] {View.class});
+            mSetHeaderViewInt.setAccessible(true);
             mGetHeaderIcon = cMenuBuilder.getMethod("getHeaderIcon", new Class[0]);
             mGetHeaderTitle = cMenuBuilder.getMethod("getHeaderTitle", new Class[0]);
             mGetHeaderView = cMenuBuilder.getMethod("getHeaderView", new Class[0]);
             mGetVisibleItems = cMenuBuilder.getMethod("getVisibleItems", new Class[0]);
             mGetContext = cMenuBuilder.getMethod("getContext", new Class[0]);
-            
             mAddCharSequence = cMenuBuilder.getMethod("add", new Class[] {CharSequence.class});
             mAddInt = cMenuBuilder.getMethod("add", new Class[] {int.class});
             mAddIntIntIntCharSequence = cMenuBuilder.getMethod("add", new Class[] {int.class, int.class, int.class, CharSequence.class});
@@ -112,7 +116,7 @@ public class MenuBuilderHelper {
             throw new RuntimeException(ex);
         }
     }
-    
+
     public static MenuBuilder createInstance(Context context) {
         MenuBuilder result = null;
         try {
